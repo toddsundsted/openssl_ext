@@ -234,4 +234,6 @@ lib LibCrypto
   fun x509_get_public_key = X509_get_pubkey(x : X509) : EvpPKey*
   fun evp_sign_final = EVP_SignFinal(ctx : EVP_MD_CTX, md : UInt8*, s : LibC::UInt*, pkey : EvpPKey*) : LibC::Int
   fun evp_verify_final = EVP_VerifyFinal(ctx : EVP_MD_CTX, sigbuf : UInt8*, siglen : LibC::UInt, pkey : EvpPKey*) : LibC::Int
+
+  fun bio_free_all = BIO_free_all(bio : Bio*)
 end
