@@ -10,7 +10,7 @@ struct OpenSSL::GETS_BIO
       line = io.gets(len, false)
 
       if line.nil?
-        return 0
+        next 0
       end
 
       io.seek(position)
