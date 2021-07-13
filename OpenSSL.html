@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="openssl_ext">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="openssl_ext">
+  <title>OpenSSL - openssl_ext main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          openssl_ext
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="openssl_ext/OpenSSL" data-name="openssl">
+      <a href="OpenSSL.html">OpenSSL</a>
+      
+        <ul>
+  
+  <li class=" " data-id="openssl_ext/OpenSSL/Cipher" data-name="openssl::cipher">
+      <a href="OpenSSL/Cipher.html">Cipher</a>
+      
+    </li>
+  
+  <li class=" " data-id="openssl_ext/OpenSSL/GETS_BIO" data-name="openssl::gets_bio">
+      <a href="OpenSSL/GETS_BIO.html">GETS_BIO</a>
+      
+    </li>
+  
+  <li class="parent " data-id="openssl_ext/OpenSSL/PKey" data-name="openssl::pkey">
+      <a href="OpenSSL/PKey.html">PKey</a>
+      
+        <ul>
+  
+  <li class=" " data-id="openssl_ext/OpenSSL/PKey/PKeyError" data-name="openssl::pkey::pkeyerror">
+      <a href="OpenSSL/PKey/PKeyError.html">PKeyError</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="openssl_ext/OpenSSL/RSA" data-name="openssl::rsa">
+      <a href="OpenSSL/RSA.html">RSA</a>
+      
+        <ul>
+  
+  <li class=" " data-id="openssl_ext/OpenSSL/RSA/RsaError" data-name="openssl::rsa::rsaerror">
+      <a href="OpenSSL/RSA/RsaError.html">RsaError</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="openssl_ext/OpensslRsa" data-name="opensslrsa">
+      <a href="OpensslRsa.html">OpensslRsa</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> OpenSSL
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <h2><a id="open-ssl-integration" class="anchor" href="#open-ssl-integration">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>OpenSSL Integration</h2>
+
+<ul><li>TLS sockets need a context, potentially with keys (required for servers) and configuration.</li><li>TLS sockets will wrap the underlying TCP socket, and any further communication must happen through the <code>OpenSSL::SSL::Socket</code> only.</li></ul>
+
+<h2><a id="usage-example" class="anchor" href="#usage-example">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage Example</h2>
+
+<p>Recommended ciphers can be taken from:</p>
+
+<ul><li><a href="https://www.owasp.org/index.php/Transport_Layer_Protection_Cheat_Sheet#Rule_-_Only_Support_Strong_Cryptographic_Ciphers">OWASP Wiki</a></li><li><a href="https://cipherli.st/">Cipherli.st</a></li><li>A full list is available at the <a href="https://www.openssl.org/docs/man1.1.0/apps/ciphers.html#CIPHER-STRINGS">OpenSSL Docs</a></li></ul>
+
+<p>Do note that:</p>
+
+<ul><li>Crystal does its best to provide sane configuration defaults (see <a href="https://wiki.mozilla.org/Security/Server_Side_TLS#Intermediate_compatibility_.28default.29">Mozilla-Intermediate</a>).</li><li>Linked version of OpenSSL need to be checked for supporting specific protocols and ciphers.</li><li>If any configurations or choices in Crystal regarding SSL settings and security are found to be lacking or need
+  improvement please <a href="https://github.com/crystal-lang/crystal/issues/new">open an issue</a> and let us know.</li></ul>
+
+<h3><a id="server-side" class="anchor" href="#server-side">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Server side</h3>
+
+<p><span class="flag purple">NOTE</span>  For the below example to work, a key pair should be attained.</p>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;socket&quot;</span>
+<span class="k">require</span> <span class="s">&quot;openssl&quot;</span>
+
+<span class="k">def</span> <span class="m">server</span>
+  <span class="c"># Bind new TCPSocket to port 5555</span>
+  socket <span class="o">=</span> <span class="t">TCPServer</span>.<span class="k">new</span>(<span class="n">5555</span>)
+
+  context <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Context</span><span class="t">::</span><span class="t">Server</span>.<span class="k">new</span>
+  context.private_key <span class="o">=</span> <span class="s">&quot;/path/to/private.key&quot;</span>
+  context.certificate_chain <span class="o">=</span> <span class="s">&quot;/path/to/public.cert&quot;</span>
+
+  puts <span class="s">&quot;Server is up&quot;</span>
+
+  socket.accept <span class="k">do</span> <span class="o">|</span>client<span class="o">|</span>
+    puts <span class="s">&quot;Got client&quot;</span>
+
+    bytes <span class="o">=</span> <span class="t">Bytes</span>.<span class="k">new</span>(<span class="n">20</span>)
+
+    ssl_socket <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Socket</span><span class="t">::</span><span class="t">Server</span>.<span class="k">new</span>(client, context)
+    ssl_socket.read(bytes)
+
+    puts <span class="t">String</span>.<span class="k">new</span>(bytes)
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+
+<h3><a id="client-side" class="anchor" href="#client-side">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Client side</h3>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;socket&quot;</span>
+<span class="k">require</span> <span class="s">&quot;openssl&quot;</span>
+
+<span class="k">def</span> <span class="m">client</span>
+  socket <span class="o">=</span> <span class="t">TCPSocket</span>.<span class="k">new</span>(<span class="s">&quot;127.0.0.1&quot;</span>, <span class="n">5555</span>)
+  context <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Context</span><span class="t">::</span><span class="t">Client</span>.<span class="k">new</span>
+
+  ssl_socket <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Socket</span><span class="t">::</span><span class="t">Client</span>.<span class="k">new</span>(socket, context)
+  ssl_socket <span class="o">&lt;&lt;</span> <span class="s">&quot;Testing&quot;</span>
+<span class="k">end</span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/toddsundsted/openssl_ext/blob/2c8a7a2594416af774414b7e036ea4d32b5ca379/src/openssl_ext/bio.cr#L1" target="_blank">
+        openssl_ext/bio.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/toddsundsted/openssl_ext/blob/2c8a7a2594416af774414b7e036ea4d32b5ca379/src/openssl_ext/pkey.cr#L4" target="_blank">
+        openssl_ext/pkey.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/toddsundsted/openssl_ext/blob/2c8a7a2594416af774414b7e036ea4d32b5ca379/src/openssl_ext/rsa.cr#L4" target="_blank">
+        openssl_ext/rsa.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

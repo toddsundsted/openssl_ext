@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="openssl_ext">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="openssl_ext">
+  <title>openssl_ext main</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          openssl_ext
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="openssl_ext/OpenSSL" data-name="openssl">
+      <a href="OpenSSL.html">OpenSSL</a>
+      
+        <ul>
+  
+  <li class=" " data-id="openssl_ext/OpenSSL/Cipher" data-name="openssl::cipher">
+      <a href="OpenSSL/Cipher.html">Cipher</a>
+      
+    </li>
+  
+  <li class=" " data-id="openssl_ext/OpenSSL/GETS_BIO" data-name="openssl::gets_bio">
+      <a href="OpenSSL/GETS_BIO.html">GETS_BIO</a>
+      
+    </li>
+  
+  <li class="parent " data-id="openssl_ext/OpenSSL/PKey" data-name="openssl::pkey">
+      <a href="OpenSSL/PKey.html">PKey</a>
+      
+        <ul>
+  
+  <li class=" " data-id="openssl_ext/OpenSSL/PKey/PKeyError" data-name="openssl::pkey::pkeyerror">
+      <a href="OpenSSL/PKey/PKeyError.html">PKeyError</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="openssl_ext/OpenSSL/RSA" data-name="openssl::rsa">
+      <a href="OpenSSL/RSA.html">RSA</a>
+      
+        <ul>
+  
+  <li class=" " data-id="openssl_ext/OpenSSL/RSA/RsaError" data-name="openssl::rsa::rsaerror">
+      <a href="OpenSSL/RSA/RsaError.html">RsaError</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="openssl_ext/OpensslRsa" data-name="opensslrsa">
+      <a href="OpensslRsa.html">OpensslRsa</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="openssl-ext" class="anchor" href="#openssl-ext">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>openssl_ext</h1>
+
+<p>RSA C Bindings for Crystal (and other extensions)</p>
+
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+
+<p>Add this to your application's <code>shard.yml</code>:</p>
+
+<pre><code class="language-yaml">dependencies:
+  openssl_ext:
+    github: randomstate/openssl_ext</code></pre>
+
+<h2><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage</h2>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;openssl_ext&quot;</span></code></pre>
+
+<p>See <code>spec/rsa_spec.cr</code> and <code>spec/x509_spec.cr</code> for usage in depth.
+The bindings closely follows the API for https://ruby-doc.org/stdlib-2.4.0/libdoc/openssl/rdoc/OpenSSL/PKey/RSA.html</p>
+
+<p><strong>Encoding with a passphrase is not yet supported as OpenSSL fails silently without any errors (in order to fix).</strong></p>
+
+<h2><a id="contributors" class="anchor" href="#contributors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributors</h2>
+
+<ul><li><a href="https://github.com/cimrie">cimrie</a> Connor Imrie - creator, maintainer</li></ul>
+</div>
+</body>
+</html>
