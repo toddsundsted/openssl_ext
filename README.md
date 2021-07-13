@@ -9,7 +9,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   openssl_ext:
-    github: randomstate/openssl_ext
+    github: toddsundsted/openssl_ext
 ```
 
 ## Usage
