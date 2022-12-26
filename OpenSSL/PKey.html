@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="generator" content="Crystal Docs 1.1.1">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="openssl_ext">
 
@@ -162,7 +162,7 @@
   </h2>
   
     
-      <a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L5" target="_blank">
+      <a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L5" target="_blank">
         openssl_ext/pkey.cr
       </a>
     
@@ -184,27 +184,27 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(pkey:Pointer(LibCrypto::EvpPKey),is_private:Bool)-class-method" class="signature"><strong>.new</strong>(pkey : Pointer(LibCrypto::EvpPKey), is_private : Bool)</a>
+        <a href="#new%28pkey%3APointer%28LibCrypto%3A%3AEvpPKey%29%2Cis_private%3ABool%29-class-method" class="signature"><strong>.new</strong>(pkey : Pointer(LibCrypto::EvpPKey), is_private : Bool)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(encoded:String,passphrase=nil,is_private=true)-class-method" class="signature"><strong>.new</strong>(encoded : String, passphrase = <span class="n">nil</span>, is_private = <span class="n">true</span>)</a>
+        <a href="#new%28encoded%3AString%2Cpassphrase%3Dnil%2Cis_private%3Dtrue%29-class-method" class="signature"><strong>.new</strong>(encoded : String, passphrase = <span class="n">nil</span>, is_private = <span class="n">true</span>)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(io:IO,passphrase=nil,is_private=true)-class-method" class="signature"><strong>.new</strong>(io : IO, passphrase = <span class="n">nil</span>, is_private = <span class="n">true</span>)</a>
+        <a href="#new%28io%3AIO%2Cpassphrase%3Dnil%2Cis_private%3Dtrue%29-class-method" class="signature"><strong>.new</strong>(io : IO, passphrase = <span class="n">nil</span>, is_private = <span class="n">true</span>)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(size:Int32)-class-method" class="signature"><strong>.new</strong>(size : Int32)</a>
+        <a href="#new%28size%3AInt32%29-class-method" class="signature"><strong>.new</strong>(size : Int32)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(is_private)-class-method" class="signature"><strong>.new</strong>(is_private)</a>
+        <a href="#new%28is_private%29-class-method" class="signature"><strong>.new</strong>(is_private)</a>
         
       </li>
     
@@ -230,22 +230,22 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#private?:Bool-instance-method" class="signature"><strong>#private?</strong> : Bool</a>
+        <a href="#private%3F%3ABool-instance-method" class="signature"><strong>#private?</strong> : Bool</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#public?-instance-method" class="signature"><strong>#public?</strong></a>
+        <a href="#public%3F-instance-method" class="signature"><strong>#public?</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#sign(digest,data)-instance-method" class="signature"><strong>#sign</strong>(digest, data)</a>
+        <a href="#sign%28digest%2Cdata%29-instance-method" class="signature"><strong>#sign</strong>(digest, data)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#to_der(io)-instance-method" class="signature"><strong>#to_der</strong>(io)</a>
+        <a href="#to_der%28io%29-instance-method" class="signature"><strong>#to_der</strong>(io)</a>
         
       </li>
     
@@ -255,12 +255,12 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#to_pem(io:IO,cipher:OpenSSL::Cipher?=nil,passphrase=nil)-instance-method" class="signature"><strong>#to_pem</strong>(io : IO, cipher : OpenSSL::Cipher? = <span class="n">nil</span>, passphrase = <span class="n">nil</span>)</a>
+        <a href="#to_pem%28io%3AIO%2Ccipher%3AOpenSSL%3A%3ACipher%3F%3Dnil%2Cpassphrase%3Dnil%29-instance-method" class="signature"><strong>#to_pem</strong>(io : IO, cipher : OpenSSL::Cipher? = <span class="n">nil</span>, passphrase = <span class="n">nil</span>)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#to_pem(cipher:OpenSSL::Cipher,passphrase)-instance-method" class="signature"><strong>#to_pem</strong>(cipher : OpenSSL::Cipher, passphrase)</a>
+        <a href="#to_pem%28cipher%3AOpenSSL%3A%3ACipher%2Cpassphrase%29-instance-method" class="signature"><strong>#to_pem</strong>(cipher : OpenSSL::Cipher, passphrase)</a>
         
       </li>
     
@@ -270,12 +270,12 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#to_unsafe:Pointer(LibCrypto::EvpPKey)-instance-method" class="signature"><strong>#to_unsafe</strong> : Pointer(LibCrypto::EvpPKey)</a>
+        <a href="#to_unsafe%3APointer%28LibCrypto%3A%3AEvpPKey%29-instance-method" class="signature"><strong>#to_unsafe</strong> : Pointer(LibCrypto::EvpPKey)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#verify(digest,signature,data)-instance-method" class="signature"><strong>#verify</strong>(digest, signature, data)</a>
+        <a href="#verify%28digest%2Csignature%2Cdata%29-instance-method" class="signature"><strong>#verify</strong>(digest, signature, data)</a>
         
       </li>
     
@@ -324,13 +324,13 @@
         
         def self.<strong>new</strong>(pkey : Pointer(LibCrypto::EvpPKey), is_private : Bool)
 
-        <a class="method-permalink" href="#new(pkey:Pointer(LibCrypto::EvpPKey),is_private:Bool)-class-method">#</a>
+        <a class="method-permalink" href="#new%28pkey%3APointer%28LibCrypto%3A%3AEvpPKey%29%2Cis_private%3ABool%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -340,13 +340,13 @@
         
         def self.<strong>new</strong>(encoded : String, passphrase = <span class="n">nil</span>, is_private = <span class="n">true</span>)
 
-        <a class="method-permalink" href="#new(encoded:String,passphrase=nil,is_private=true)-class-method">#</a>
+        <a class="method-permalink" href="#new%28encoded%3AString%2Cpassphrase%3Dnil%2Cis_private%3Dtrue%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -356,13 +356,13 @@
         
         def self.<strong>new</strong>(io : IO, passphrase = <span class="n">nil</span>, is_private = <span class="n">true</span>)
 
-        <a class="method-permalink" href="#new(io:IO,passphrase=nil,is_private=true)-class-method">#</a>
+        <a class="method-permalink" href="#new%28io%3AIO%2Cpassphrase%3Dnil%2Cis_private%3Dtrue%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L20" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -372,13 +372,13 @@
         
         def self.<strong>new</strong>(size : Int32)
 
-        <a class="method-permalink" href="#new(size:Int32)-class-method">#</a>
+        <a class="method-permalink" href="#new%28size%3AInt32%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L35" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L35" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -388,13 +388,13 @@
         
         def self.<strong>new</strong>(is_private)
 
-        <a class="method-permalink" href="#new(is_private)-class-method">#</a>
+        <a class="method-permalink" href="#new%28is_private%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -424,7 +424,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L44" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L44" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -434,13 +434,13 @@
         
         def <strong>private?</strong> : Bool
 
-        <a class="method-permalink" href="#private?:Bool-instance-method">#</a>
+        <a class="method-permalink" href="#private%3F%3ABool-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L48" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L48" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -450,13 +450,13 @@
         
         def <strong>public?</strong>
 
-        <a class="method-permalink" href="#public?-instance-method">#</a>
+        <a class="method-permalink" href="#public%3F-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L52" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L52" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -466,13 +466,13 @@
         
         def <strong>sign</strong>(digest, data)
 
-        <a class="method-permalink" href="#sign(digest,data)-instance-method">#</a>
+        <a class="method-permalink" href="#sign%28digest%2Cdata%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L136" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L136" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -482,13 +482,13 @@
         
         def <strong>to_der</strong>(io)
 
-        <a class="method-permalink" href="#to_der(io)-instance-method">#</a>
+        <a class="method-permalink" href="#to_der%28io%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L91" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L91" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -504,7 +504,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L85" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L85" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -514,13 +514,13 @@
         
         def <strong>to_pem</strong>(io : IO, cipher : <a href="../OpenSSL/Cipher.html">OpenSSL::Cipher</a>? = <span class="n">nil</span>, passphrase = <span class="n">nil</span>)
 
-        <a class="method-permalink" href="#to_pem(io:IO,cipher:OpenSSL::Cipher?=nil,passphrase=nil)-instance-method">#</a>
+        <a class="method-permalink" href="#to_pem%28io%3AIO%2Ccipher%3AOpenSSL%3A%3ACipher%3F%3Dnil%2Cpassphrase%3Dnil%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L56" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L56" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -530,13 +530,13 @@
         
         def <strong>to_pem</strong>(cipher : <a href="../OpenSSL/Cipher.html">OpenSSL::Cipher</a>, passphrase)
 
-        <a class="method-permalink" href="#to_pem(cipher:OpenSSL::Cipher,passphrase)-instance-method">#</a>
+        <a class="method-permalink" href="#to_pem%28cipher%3AOpenSSL%3A%3ACipher%2Cpassphrase%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L73" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L73" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -552,7 +552,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L79" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L79" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -562,13 +562,13 @@
         
         def <strong>to_unsafe</strong> : Pointer(LibCrypto::EvpPKey)
 
-        <a class="method-permalink" href="#to_unsafe:Pointer(LibCrypto::EvpPKey)-instance-method">#</a>
+        <a class="method-permalink" href="#to_unsafe%3APointer%28LibCrypto%3A%3AEvpPKey%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L40" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L40" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -578,13 +578,13 @@
         
         def <strong>verify</strong>(digest, signature, data)
 
-        <a class="method-permalink" href="#verify(digest,signature,data)-instance-method">#</a>
+        <a class="method-permalink" href="#verify%28digest%2Csignature%2Cdata%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/pkey.cr#L151" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/pkey.cr#L151" target="_blank">View source</a>]
         
       </div>
     </div>

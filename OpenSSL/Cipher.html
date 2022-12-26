@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="generator" content="Crystal Docs 1.1.1">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="openssl_ext">
 
@@ -125,6 +125,49 @@
 
 
 
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>A class which can be used to encrypt and decrypt data using a specified cipher.</p>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;random/secure&quot;</span>
+
+key <span class="o">=</span> <span class="t">Random</span><span class="t">::</span><span class="t">Secure</span>.random_bytes(<span class="n">64</span>) <span class="c"># You can also use OpenSSL::Cipher#random_key to do this same thing</span>
+iv <span class="o">=</span> <span class="t">Random</span><span class="t">::</span><span class="t">Secure</span>.random_bytes(<span class="n">32</span>)  <span class="c"># You can also use OpenSSL::Cipher#random_iv to do this same thing</span>
+
+<span class="k">def</span> <span class="m">encrypt</span>(data)
+  cipher <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">Cipher</span>.<span class="k">new</span>(<span class="s">&quot;aes-256-cbc&quot;</span>)
+  cipher.encrypt
+  cipher.key <span class="o">=</span> key
+  cipher.iv <span class="o">=</span> iv
+
+  io <span class="o">=</span> <span class="t">IO</span><span class="t">::</span><span class="t">Memory</span>.<span class="k">new</span>
+  io.write(cipher.update(data))
+  io.write(cipher.final)
+  io.rewind
+
+  io.to_slice
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="m">decrypt</span>(data)
+  cipher <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">Cipher</span>.<span class="k">new</span>(<span class="s">&quot;aes-256-cbc&quot;</span>)
+  cipher.decrypt
+  cipher.key <span class="o">=</span> key
+  cipher.iv <span class="o">=</span> iv
+
+  io <span class="o">=</span> <span class="t">IO</span><span class="t">::</span><span class="t">Memory</span>.<span class="k">new</span>
+  io.write(cipher.update(data))
+  io.write(cipher.final)
+  io.rewind
+
+  io.gets_to_end
+<span class="k">end</span></code></pre>
+
 
 
 
@@ -148,7 +191,7 @@
   </h2>
   
     
-      <a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/cipher.cr#L4" target="_blank">
+      <a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/cipher.cr#L4" target="_blank">
         openssl_ext/cipher.cr
       </a>
     
@@ -233,7 +276,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/openssl_ext/blob/f437b43c94a53d29bf74f8ad2e93645fc6a88e63/src/openssl_ext/cipher.cr#L5" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/openssl_ext/blob/600b179d3bfef20d9948925e3fc5ded73ddd2cec/src/openssl_ext/cipher.cr#L5" target="_blank">View source</a>]
         
       </div>
     </div>

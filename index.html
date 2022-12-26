@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="generator" content="Crystal Docs 1.1.1">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="openssl_ext">
 
@@ -113,46 +113,37 @@
 
 
 <div class="main-content">
-<h1><a id="openssl-ext" class="anchor" href="#openssl-ext">
-  <svg class="octicon-link" aria-hidden="true">
+<h1><a id="openssl-ext" class="anchor" href="#openssl-ext">  <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>openssl_ext</h1>
-
 <p>RSA C Bindings for Crystal (and other extensions)</p>
-
 <h2><a id="installation" class="anchor" href="#installation">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Installation</h2>
-
 <p>Add this to your application's <code>shard.yml</code>:</p>
-
 <pre><code class="language-yaml">dependencies:
   openssl_ext:
     github: toddsundsted/openssl_ext</code></pre>
-
 <h2><a id="usage" class="anchor" href="#usage">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Usage</h2>
-
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;openssl_ext&quot;</span></code></pre>
-
 <p>See <code>spec/rsa_spec.cr</code> and <code>spec/x509_spec.cr</code> for usage in depth.
 The bindings closely follows the API for https://ruby-doc.org/stdlib-2.4.0/libdoc/openssl/rdoc/OpenSSL/PKey/RSA.html</p>
-
 <p><strong>Encoding with a passphrase is not yet supported as OpenSSL fails silently without any errors (in order to fix).</strong></p>
-
 <h2><a id="contributors" class="anchor" href="#contributors">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Contributors</h2>
-
-<ul><li><a href="https://github.com/cimrie">cimrie</a> Connor Imrie - creator, maintainer</li></ul>
+<ul>
+<li><a href="https://github.com/cimrie">cimrie</a> Connor Imrie - creator, maintainer</li>
+</ul>
 </div>
 </body>
 </html>
