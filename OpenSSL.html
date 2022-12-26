@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 1.1.1">
+<meta name="generator" content="Crystal Docs 1.5.0">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="openssl_ext">
 
@@ -169,9 +169,9 @@ improvement please <a href="https://github.com/crystal-lang/crystal/issues/new">
 
 <span class="k">def</span> <span class="m">server</span>
   <span class="c"># Bind new TCPSocket to port 5555</span>
-  socket <span class="o">=</span> <span class="t">TCPServer</span>.<span class="k">new</span>(<span class="n">5555</span>)
+  socket <span class="o">=</span> <span class="t">TCPServer</span>.new(<span class="n">5555</span>)
 
-  context <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Context</span><span class="t">::</span><span class="t">Server</span>.<span class="k">new</span>
+  context <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Context</span><span class="t">::</span><span class="t">Server</span>.new
   context.private_key <span class="o">=</span> <span class="s">&quot;/path/to/private.key&quot;</span>
   context.certificate_chain <span class="o">=</span> <span class="s">&quot;/path/to/public.cert&quot;</span>
 
@@ -180,12 +180,12 @@ improvement please <a href="https://github.com/crystal-lang/crystal/issues/new">
   socket.accept <span class="k">do</span> <span class="o">|</span>client<span class="o">|</span>
     puts <span class="s">&quot;Got client&quot;</span>
 
-    bytes <span class="o">=</span> <span class="t">Bytes</span>.<span class="k">new</span>(<span class="n">20</span>)
+    bytes <span class="o">=</span> <span class="t">Bytes</span>.new(<span class="n">20</span>)
 
-    ssl_socket <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Socket</span><span class="t">::</span><span class="t">Server</span>.<span class="k">new</span>(client, context)
+    ssl_socket <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Socket</span><span class="t">::</span><span class="t">Server</span>.new(client, context)
     ssl_socket.read(bytes)
 
-    puts <span class="t">String</span>.<span class="k">new</span>(bytes)
+    puts <span class="t">String</span>.new(bytes)
   <span class="k">end</span>
 <span class="k">end</span></code></pre>
 <h3><a id="client-side" class="anchor" href="#client-side">
@@ -197,10 +197,10 @@ improvement please <a href="https://github.com/crystal-lang/crystal/issues/new">
 <span class="k">require</span> <span class="s">&quot;openssl&quot;</span>
 
 <span class="k">def</span> <span class="m">client</span>
-  socket <span class="o">=</span> <span class="t">TCPSocket</span>.<span class="k">new</span>(<span class="s">&quot;127.0.0.1&quot;</span>, <span class="n">5555</span>)
-  context <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Context</span><span class="t">::</span><span class="t">Client</span>.<span class="k">new</span>
+  socket <span class="o">=</span> <span class="t">TCPSocket</span>.new(<span class="s">&quot;127.0.0.1&quot;</span>, <span class="n">5555</span>)
+  context <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Context</span><span class="t">::</span><span class="t">Client</span>.new
 
-  ssl_socket <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Socket</span><span class="t">::</span><span class="t">Client</span>.<span class="k">new</span>(socket, context)
+  ssl_socket <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">SSL</span><span class="t">::</span><span class="t">Socket</span><span class="t">::</span><span class="t">Client</span>.new(socket, context)
   ssl_socket <span class="o">&lt;&lt;</span> <span class="s">&quot;Testing&quot;</span>
 <span class="k">end</span></code></pre>
 

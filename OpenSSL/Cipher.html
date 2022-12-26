@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 1.1.1">
+<meta name="generator" content="Crystal Docs 1.5.0">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="openssl_ext">
 
@@ -141,12 +141,12 @@ key <span class="o">=</span> <span class="t">Random</span><span class="t">::</sp
 iv <span class="o">=</span> <span class="t">Random</span><span class="t">::</span><span class="t">Secure</span>.random_bytes(<span class="n">32</span>)  <span class="c"># You can also use OpenSSL::Cipher#random_iv to do this same thing</span>
 
 <span class="k">def</span> <span class="m">encrypt</span>(data)
-  cipher <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">Cipher</span>.<span class="k">new</span>(<span class="s">&quot;aes-256-cbc&quot;</span>)
+  cipher <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">Cipher</span>.new(<span class="s">&quot;aes-256-cbc&quot;</span>)
   cipher.encrypt
   cipher.key <span class="o">=</span> key
   cipher.iv <span class="o">=</span> iv
 
-  io <span class="o">=</span> <span class="t">IO</span><span class="t">::</span><span class="t">Memory</span>.<span class="k">new</span>
+  io <span class="o">=</span> <span class="t">IO</span><span class="t">::</span><span class="t">Memory</span>.new
   io.write(cipher.update(data))
   io.write(cipher.final)
   io.rewind
@@ -155,12 +155,12 @@ iv <span class="o">=</span> <span class="t">Random</span><span class="t">::</spa
 <span class="k">end</span>
 
 <span class="k">def</span> <span class="m">decrypt</span>(data)
-  cipher <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">Cipher</span>.<span class="k">new</span>(<span class="s">&quot;aes-256-cbc&quot;</span>)
+  cipher <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">Cipher</span>.new(<span class="s">&quot;aes-256-cbc&quot;</span>)
   cipher.decrypt
   cipher.key <span class="o">=</span> key
   cipher.iv <span class="o">=</span> iv
 
-  io <span class="o">=</span> <span class="t">IO</span><span class="t">::</span><span class="t">Memory</span>.<span class="k">new</span>
+  io <span class="o">=</span> <span class="t">IO</span><span class="t">::</span><span class="t">Memory</span>.new
   io.write(cipher.update(data))
   io.write(cipher.final)
   io.rewind

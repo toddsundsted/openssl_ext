@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 1.1.1">
+<meta name="generator" content="Crystal Docs 1.5.0">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="openssl_ext">
 
@@ -172,7 +172,7 @@
       <dt class="entry-const" id="GETS_BIO">
         <strong>GETS_BIO</strong> = <code><span class="k">begin</span>
   crystal_bio <span class="o">=</span> <span class="t">OpenSSL</span><span class="t">::</span><span class="t">BIO</span><span class="t">::</span><span class="t">CRYSTAL_BIO</span>
-  bgets <span class="o">=</span> <span class="t">LibCrypto</span><span class="t">::</span><span class="t">BioMethodGets</span>.<span class="k">new</span> <span class="k">do</span> <span class="o">|</span>bio, buffer, len<span class="o">|</span>
+  bgets <span class="o">=</span> <span class="t">LibCrypto</span><span class="t">::</span><span class="t">BioMethodGets</span>.new <span class="k">do</span> <span class="o">|</span>bio, buffer, len<span class="o">|</span>
     io <span class="o">=</span> <span class="t">Box</span>(<span class="t">IO</span>).unbox(<span class="t">BIO</span>.get_data(bio))
     io.flush
     position <span class="o">=</span> io.pos
@@ -181,18 +181,18 @@
       <span class="k">next</span> <span class="n">0</span>
     <span class="k">end</span>
     io.seek(position)
-    bytes <span class="o">=</span> (io.read(<span class="t">Slice</span>.<span class="k">new</span>(buffer, line.bytesize))).to_i
+    bytes <span class="o">=</span> (io.read(<span class="t">Slice</span>.new(buffer, line.bytesize))).to_i
     <span class="k">if</span> bytes <span class="o">==</span> <span class="n">1</span>
     <span class="k">else</span>
       bytes <span class="o">=</span> bytes <span class="o">-</span> <span class="n">1</span>
     <span class="k">end</span>
     bytes
   <span class="k">end</span>
-  {% <span class="k">if</span> (compare_versions(<span class="t">LibCrypto</span><span class="t">::</span><span class="t">OPENSSL_VERSION</span>, <span class="s">&quot;1.1.0&quot;</span>)) <span class="o">&gt;=</span> <span class="n">0</span> %}
+  <span class="o">{%</span> <span class="k">if</span> (compare_versions(<span class="t">LibCrypto</span><span class="t">::</span><span class="t">OPENSSL_VERSION</span>, <span class="s">&quot;1.1.0&quot;</span>)) <span class="o">&gt;=</span> <span class="n">0</span> <span class="o">%}</span>
       <span class="t">LibCrypto</span>.<span class="t">BIO_meth_set_gets</span>(crystal_bio, bgets)
-    {% <span class="k">else</span> %}
+    <span class="o">{%</span> <span class="k">else</span> <span class="o">%}</span>
       crystal_bio.value.bgets <span class="o">=</span> bgets
-    {% <span class="k">end</span> %}
+    <span class="o">{%</span> <span class="k">end</span> <span class="o">%}</span>
   crystal_bio
 <span class="k">end</span></code>
       </dt>
