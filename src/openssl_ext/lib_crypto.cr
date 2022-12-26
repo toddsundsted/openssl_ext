@@ -199,7 +199,11 @@ lib LibCrypto
 
   fun evp_pkey_new = EVP_PKEY_new : EvpPKey*
   fun evp_pkey_free = EVP_PKEY_free(pkey : EvpPKey*)
-  fun evp_pkey_size = EVP_PKEY_size(pkey : EvpPKey*) : LibC::Int
+  {% if compare_versions(OPENSSL_VERSION, "3.0.0") >= 0 %}
+    fun evp_pkey_size = EVP_PKEY_get_size(pkey : EvpPKey*) : LibC::Int
+  {% else %}
+    fun evp_pkey_size = EVP_PKEY_size(pkey : EvpPKey*) : LibC::Int
+  {% end %}
   fun evp_pkey_get1_rsa = EVP_PKEY_get1_RSA(pkey : EvpPKey*) : Rsa*
   fun evp_pkey_set1_rsa = EVP_PKEY_set1_RSA(pkey : EvpPKey*, key : Rsa*) : LibC::Int
 
