@@ -368,6 +368,7 @@ lib LibCrypto
   fun ec_group_get_order = EC_GROUP_get_order(group : EC_GROUP, order : Bignum*, bn_ctx : Void*) : LibC::Int
   fun ec_group_free = EC_GROUP_free(group : EC_GROUP)
   fun ec_point_new = EC_POINT_new(group : EC_GROUP) : EcPoint*
+  fun ec_point_oct2point = EC_POINT_oct2point(group : EC_GROUP, p : EcPoint*, buf : LibC::Char*, len : LibC::SizeT, bn_ctx : Void*) : LibC::Int
   fun ec_point_free = EC_POINT_free(point : EcPoint*)
   fun ec_group_get0_generator = EC_GROUP_get0_generator(group : EC_GROUP) : EcPoint*
   fun ec_point_dup = EC_POINT_dup(src : EcPoint*, group : EC_GROUP) : EcPoint*

@@ -34,10 +34,18 @@ class OpenSSL::PKey::EC::Group
     Point.new self
   end
 
+  def point(integer : Bytes) : Point
+    Point.new self, integer
+  end
+
+  def point(integer : BigInt) : Point
+    point OpenSSL::BN.new(integer).to_bin
+  end
+
   def order : BigInt
     bn = BN.new
     success = LibCrypto.ec_group_get_order(self, bn, Pointer(Void).null)
-    raise "failed to get order" if success.zero?
+    raise EcError.new("failed to get order") if success.zero?
     bn.to_big
   end
 end

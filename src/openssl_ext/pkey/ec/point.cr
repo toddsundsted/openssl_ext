@@ -17,6 +17,11 @@ class OpenSSL::PKey::EC::Point
     @point = LibCrypto.ec_point_dup(point, group)
   end
 
+  def self.new(group : EC::Group, bytes : Bytes)
+    point = EC::Point.new(group)
+    point.at_position(bytes)
+  end
+
   @internal : Bool
   @point : Pointer(LibCrypto::EcPoint)
   getter group : EC::Group
@@ -42,10 +47,16 @@ class OpenSSL::PKey::EC::Point
 
   def uncompressed_bytes : Bytes
     length = LibCrypto.ec_point_point2oct(group, self, LibCrypto::PointConversionForm::UNCOMPRESSED, Pointer(LibC::Char).null, 0, Pointer(Void).null)
-    raise "failed to obtain uncompressed point length" if length.zero?
+    raise EcError.new("failed to obtain uncompressed point length") if length.zero?
     bytes = Bytes.new(length)
     length = LibCrypto.ec_point_point2oct(group, self, LibCrypto::PointConversionForm::UNCOMPRESSED, bytes, length, Pointer(Void).null)
-    raise "failed to fill buffer with uncompressed point data" if length.zero?
+    raise EcError.new("failed to fill buffer with uncompressed point data") if length.zero?
     bytes
+  end
+
+  def at_position(integer : Bytes)
+    success = LibCrypto.ec_point_oct2point(group, self, integer, integer.size, Pointer(Void).null)
+    raise EcError.new("failed to configure point position") if success.zero?
+    self
   end
 end
