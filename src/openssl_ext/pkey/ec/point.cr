@@ -39,9 +39,12 @@ class OpenSSL::PKey::EC::Point
   end
 
   def mul(integer : Int) : EC::Point
-    num = BN.new(integer)
+    mul BN.new(integer)
+  end
+
+  def mul(integer : BN) : EC::Point
     result = EC::Point.new(group)
-    success = LibCrypto.ec_point_mul(group, result, Pointer(LibCrypto::Bignum).null, self, num, Pointer(Void).null)
+    success = LibCrypto.ec_point_mul(group, result, Pointer(LibCrypto::Bignum).null, self, integer, Pointer(Void).null)
     result
   end
 
