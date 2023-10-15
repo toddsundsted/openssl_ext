@@ -70,7 +70,7 @@ describe OpenSSL::PKey::EC do
       io = IO::Memory.new
       io.write_bytes(passcode, IO::ByteFormat::LittleEndian)
 
-      salt = Base64.decode "U1BBS0UyUCBLZXkgU2FsdA=="
+      salt = "SPAKE2P Key Salt"
       iterations = 1000
 
       # "prime256v1" or "secp256r1" are aliases for "P-256"
