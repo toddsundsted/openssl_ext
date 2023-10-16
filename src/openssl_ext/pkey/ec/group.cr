@@ -14,7 +14,7 @@ class OpenSSL::PKey::EC::Group
     p = BN.new
     a = BN.new
     b = BN.new
-    result = LibCrypto.ec_group_get_curve(self, p, a, b)
+    result = LibCrypto.ec_group_get_curve(self, p, a, b, Pointer(Void).null)
     raise EcError.new("failed to get parameters") if result.zero?
     {prime_modulus: p, coefficient_a: a, coefficient_b: b}
   end
