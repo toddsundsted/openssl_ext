@@ -56,6 +56,16 @@ class OpenSSL::PKey::EC::Point
     result
   end
 
+  def invert : EC::Point
+    success = LibCrypto.ec_point_invert(group, self, Pointer(Void).null)
+    raise EcError.new("failed to invert (negate) point") if success.zero?
+    self
+  end
+
+  def negate
+    invert
+  end
+
   def uncompressed_bytes : Bytes
     length = LibCrypto.ec_point_point2oct(group, self, LibCrypto::PointConversionForm::UNCOMPRESSED, Pointer(LibC::Char).null, 0, Pointer(Void).null)
     raise EcError.new("failed to obtain uncompressed point length") if length.zero?
@@ -69,5 +79,10 @@ class OpenSSL::PKey::EC::Point
     success = LibCrypto.ec_point_oct2point(group, self, integer, integer.size, Pointer(Void).null)
     raise EcError.new("failed to configure point position") if success.zero?
     self
+  end
+
+  def valid? : Bool
+    success = LibCrypto.ec_point_is_on_curve(group, self, Pointer(Void).null)
+    success == 1
   end
 end

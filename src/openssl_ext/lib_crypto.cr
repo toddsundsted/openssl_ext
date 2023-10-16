@@ -375,6 +375,8 @@ lib LibCrypto
   fun ec_point_dup = EC_POINT_dup(src : EcPoint*, group : EC_GROUP) : EcPoint*
   fun ec_point_mul = EC_POINT_mul(group : EC_GROUP, r : EcPoint*, n : Bignum*, q : EcPoint*, m : Bignum*, bn_ctx : Void*) : Int32
   fun ec_point_add = EC_POINT_add(group : EC_GROUP, r : EcPoint*, a : EcPoint*, b : EcPoint*, bn_ctx : Void*) : LibC::Int
+  fun ec_point_is_on_curve = EC_POINT_is_on_curve(group : EC_GROUP, point : EcPoint*, bn_ctx : Void*) : LibC::Int
+  fun ec_point_invert = EC_POINT_invert(group : EC_GROUP, point : EcPoint*, bn_ctx : Void*) : LibC::Int
 
   enum PointConversionForm
     COMPRESSED   = 2
