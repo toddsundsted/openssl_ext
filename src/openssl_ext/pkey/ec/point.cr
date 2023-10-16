@@ -75,6 +75,10 @@ class OpenSSL::PKey::EC::Point
     bytes
   end
 
+  def to_slice
+    uncompressed_bytes
+  end
+
   def at_position(integer : Bytes)
     success = LibCrypto.ec_point_oct2point(group, self, integer, integer.size, Pointer(Void).null)
     raise EcError.new("failed to configure point position") if success.zero?
