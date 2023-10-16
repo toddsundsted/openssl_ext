@@ -10,6 +10,27 @@ class OpenSSL::PKey::EC::Group
   @internal : Bool
   @group : LibCrypto::EC_GROUP
 
+  getter parameters : NamedTuple(prime_modulus: BN, coefficient_a: BN, coefficient_b: BN) do
+    p = BN.new
+    a = BN.new
+    b = BN.new
+    result = LibCrypto.ec_group_get_curve(self, p, a, b)
+    raise EcError.new("failed to get parameters") if result.zero?
+    {prime_modulus: p, coefficient_a: a, coefficient_b: b}
+  end
+
+  getter prime_modulus : BN do
+    parameters[:prime_modulus]
+  end
+
+  getter coefficient_a : BN do
+    parameters[:coefficient_a]
+  end
+
+  getter coefficient_b : BN do
+    parameters[:coefficient_b]
+  end
+
   def to_unsafe
     @group
   end

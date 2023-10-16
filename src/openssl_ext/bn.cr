@@ -99,8 +99,12 @@ module OpenSSL
       to
     end
 
-    def to_big
+    def to_big_i
       BigInt.new(to_hex, 16)
+    end
+
+    def to_big
+      to_big_i
     end
 
     def to_unsafe

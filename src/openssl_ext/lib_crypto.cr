@@ -366,6 +366,7 @@ lib LibCrypto
   fun pem_read_bio_ec_pubkey = PEM_read_bio_EC_PUBKEY(bio : Bio*, key : EC_KEY*, cb : PasswordCallback, user_data : Void*) : EC_KEY
   fun pem_write_bio_ec_pubkey = PEM_write_bio_EC_PUBKEY(bio : Bio*, key : EC_KEY) : Int32
   fun ec_group_get_order = EC_GROUP_get_order(group : EC_GROUP, order : Bignum*, bn_ctx : Void*) : LibC::Int
+  fun ec_group_get_curve = EC_GROUP_get_curve(group : EC_GROUP, p : Bignum*, a : Bignum*, b : Bignum*, bn_ctx : Void*) : LibC::Int
   fun ec_group_free = EC_GROUP_free(group : EC_GROUP)
   fun ec_point_new = EC_POINT_new(group : EC_GROUP) : EcPoint*
   fun ec_point_oct2point = EC_POINT_oct2point(group : EC_GROUP, p : EcPoint*, buf : LibC::Char*, len : LibC::SizeT, bn_ctx : Void*) : LibC::Int
@@ -373,6 +374,7 @@ lib LibCrypto
   fun ec_group_get0_generator = EC_GROUP_get0_generator(group : EC_GROUP) : EcPoint*
   fun ec_point_dup = EC_POINT_dup(src : EcPoint*, group : EC_GROUP) : EcPoint*
   fun ec_point_mul = EC_POINT_mul(group : EC_GROUP, r : EcPoint*, n : Bignum*, q : EcPoint*, m : Bignum*, bn_ctx : Void*) : Int32
+  fun ec_point_add = EC_POINT_add(group : EC_GROUP, r : EcPoint*, a : EcPoint*, b : EcPoint*, bn_ctx : Void*) : LibC::Int
 
   enum PointConversionForm
     COMPRESSED   = 2

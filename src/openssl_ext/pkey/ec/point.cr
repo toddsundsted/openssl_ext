@@ -45,6 +45,14 @@ class OpenSSL::PKey::EC::Point
   def mul(integer : BN) : EC::Point
     result = EC::Point.new(group)
     success = LibCrypto.ec_point_mul(group, result, Pointer(LibCrypto::Bignum).null, self, integer, Pointer(Void).null)
+    raise EcError.new("failed to multiply point") if success.zero?
+    result
+  end
+
+  def add(point : EC::Point) : EC::Point
+    result = EC::Point.new(group)
+    success = LibCrypto.ec_point_add(group, result, self, point, Pointer(Void).null)
+    raise EcError.new("failed to add point") if success.zero?
     result
   end
 

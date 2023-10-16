@@ -65,7 +65,7 @@ describe OpenSSL::PKey::EC do
   end
 
   describe "groups and points" do
-    it "should be able to generate a matter verifier", focus: true do
+    it "should be able to generate a matter verifier" do
       passcode = 20202021_u32
       io = IO::Memory.new
       io.write_bytes(passcode, IO::ByteFormat::LittleEndian)
